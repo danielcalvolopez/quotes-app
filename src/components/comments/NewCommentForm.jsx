@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import useHttp from "../../hooks/useHttp";
 import useInput from "../../hooks/useInput";
 import { addComment } from "../../lib/api";
-import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./NewCommentForm.module.css";
 
 const NewCommentForm = (props) => {
@@ -43,11 +42,6 @@ const NewCommentForm = (props) => {
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
-      {status === "pending" && (
-        <div className="centered">
-          <LoadingSpinner />
-        </div>
-      )}
       <div className={textInputClasses} onSubmit={submitFormHandler}>
         <label htmlFor="comment">Your Comment</label>
         <textarea
